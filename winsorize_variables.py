@@ -18,7 +18,7 @@ def win_fun(df, timev, vars_w, pl, pu):
     vars_w = [vars_w] if isinstance(vars_w, str) else vars_w
     
     df1 = df.copy()
-    timev_list = df1['fyear'].unique() 
+    timev_list = df1[timev].unique() 
     
     for j in vars_w:
         
