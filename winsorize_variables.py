@@ -6,14 +6,13 @@ Created on Thu May 20 15:33:59 2021
 """
 
 def win_fun(df, timev, vars_w, pl, pu):
-    # df = dataframe
-    # timev = time variable
-    # vars_w = variable(s) to be winsorized
-    # p1 = lower percentile
-    # pu = upper percentile
-    
-    import pandas as pd
-    import numpy as np 
+    '''df = dataframe
+    timev = time variable
+    vars_w = variable(s) to be winsorized
+    p1 = lower percentile
+    pu = upper percentile'''
+
+    import pandas
     
     vars_w = [vars_w] if isinstance(vars_w, str) else vars_w
     
@@ -22,7 +21,7 @@ def win_fun(df, timev, vars_w, pl, pu):
     
     for j in vars_w:
         
-        df2 = pd.DataFrame()
+        df2 = pandas.DataFrame()
         
         for i in timev_list:
 
@@ -36,29 +35,4 @@ def win_fun(df, timev, vars_w, pl, pu):
         df1 = df2
            
     return df1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
