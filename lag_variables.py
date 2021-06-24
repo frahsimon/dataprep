@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu May 20 09:40:01 2021
-
-@author: frede
-"""
-
 def lag_variables(df, idv, timev, varl, lag):
     ''' This function takes a dataframe and lags a pre-specified selection of its
     variables.
@@ -13,6 +7,10 @@ def lag_variables(df, idv, timev, varl, lag):
     timev = time variable (string variable)
     varl = (list of) variable(s) to be lagged (string or list)
     lag = (list of) lag(s) (integer or list)'''
+    
+    import pandas
+    
+    pandas.options.mode.chained_assignment = None  
     
     lag = [lag] if isinstance(lag, int) else lag
     varl = [varl] if isinstance(varl, str) else varl
@@ -49,5 +47,7 @@ def lag_variables(df, idv, timev, varl, lag):
             
             _temp[timev + '_lead' + str(i)[1:]] = _temp[timev + '_lead' + str(i)[1:]] - i
             _temp = _temp.sort_values([idv, timev], ascending = [True, True])
+    
+    pandas.options.mode.chained_assignment = 'warn'
     
     return(_temp)
